@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .resource-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 15px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            cursor: pointer;
+            transition: background-color 100ms ease-in-out;
+        }
+        .resource-button:hover {
+            background-color: #2980b9;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 15px;
+            border: none;
+            background-color: #e74c3c;
+            color: white;
+            cursor: pointer;
+            transition: background-color 100ms ease-in-out;
+        }
+        .back-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resources</h1>
+    
+    <!-- Buttons for different subjects -->
+    <button class="resource-button" onclick="openPDF('files/algebra.pdf')">Algebra</button>
+    <button class="resource-button" onclick="openPDF('files/geometry.pdf')">Geometry</button>
+    <button class="resource-button" onclick="openPDF('files/calculus.pdf')">Calculus</button>
+    <button class="resource-button" onclick="openPDF('files/physics.pdf')">Physics</button>
+    <button class="resource-button" onclick="openPDF('files/chemistry.pdf')">Chemistry</button>
+    
+    <button class="back-button" onclick="goBack()">Back</button>
+    
+    <script>
+        function openPDF(file) {
+            window.open('pdf-viewer.html?file=' + file, '_blank');
+        }
+        
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

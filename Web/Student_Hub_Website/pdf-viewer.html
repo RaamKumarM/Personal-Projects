@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        iframe {
+            width: 80%;
+            height: 90vh;
+            border: none;
+        }
+        .close-button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 15px;
+            border: none;
+            background-color: #e74c3c;
+            color: white;
+            cursor: pointer;
+            transition: background-color 100ms ease-in-out;
+        }
+        .close-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>PDF Viewer</h1>
+    <button class="close-button" onclick="goBack()">Close</button>
+    <iframe id="pdf-frame" src="" frameborder="0"></iframe>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function goBack() {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.close();
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const pdfFile = getQueryParam("file");
+            if (pdfFile) {
+                document.getElementById("pdf-frame").src = pdfFile;
+            } else {
+                document.body.innerHTML = "<h2>No PDF file specified.</h2>";
+            }
+        });
+    </script>
+</body>
+</html>

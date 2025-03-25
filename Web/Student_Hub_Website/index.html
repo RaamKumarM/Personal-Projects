@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Year</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .button {
+            width: 250px;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 20px;
+            cursor: pointer;
+            background: blue;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.1s;
+        }
+        .button:hover { background: darkblue; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <h1>Select Your Year</h1>
+    <button class="button" onclick="navigateTo('topics.html')">1st Year</button>
+    <button class="button" onclick="navigateTo('topics.html')">2nd Year</button>
+    <button class="button" onclick="navigateTo('topics.html')">3rd Year</button>
+
+    <script>
+        function navigateTo(page) {
+            setTimeout(() => { window.location.href = page; }, 100);
+        }
+    </script>
+</body>
+</html>

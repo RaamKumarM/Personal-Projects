@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Topic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #eef;
+        }
+        .button {
+            width: 250px;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 20px;
+            cursor: pointer;
+            background: purple;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.1s;
+        }
+        .button:hover { background: darkpurple; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <h1>Select Your Topic</h1>
+    <button class="button" onclick="navigateToSubTopics('CSE')">CSE</button>
+    <button class="button" onclick="navigateToSubTopics('ECE')">ECE</button>
+    <button class="button" onclick="navigateToSubTopics('EEE')">EEE</button>
+    <button class="button" onclick="navigateToSubTopics('MECH')">MECH</button>
+    <button class="button" onclick="navigateToSubTopics('Civil')">Civil</button>
+    
+    <!-- Back Button to go to Year Selection Page -->
+    <button class="button" onclick="goBack()" style="background: red;">Back</button>
+
+    <script>
+        function navigateToSubTopics(topic) {
+            localStorage.setItem("selectedTopic", topic);
+            setTimeout(() => { window.location.href = "subtopics.html"; }, 100);
+        }
+
+        function goBack() {
+            setTimeout(() => { window.location.href = "index.html"; }, 100);
+        }
+    </script>
+</body>
+</html>

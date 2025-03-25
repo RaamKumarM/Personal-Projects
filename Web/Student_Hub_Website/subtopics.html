@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Subtopic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #eef;
+        }
+        .button {
+            width: 250px;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 20px;
+            cursor: pointer;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.1s;
+        }
+        .button:hover { background: darkgreen; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <h1 id="topicTitle">Select Subtopic</h1>
+
+    <button class="button" onclick="navigateToResources('Maths')">Maths</button>
+    <button class="button" onclick="navigateToResources('English')">English</button>
+    <button class="button" onclick="navigateToResources('Chemistry')">Chemistry</button>
+    <button class="button" onclick="navigateToResources('Physics')">Physics</button>
+    <button class="button" onclick="navigateToResources('Tamil')">Tamil</button>
+
+    <!-- Back Button -->
+    <button class="button" onclick="goBack()" style="background: red;">Back</button>
+
+    <script>
+        document.getElementById("topicTitle").innerText = "Select Subtopic for " + localStorage.getItem("selectedTopic");
+
+        function navigateToResources(subtopic) {
+            localStorage.setItem("selectedSubtopic", subtopic);
+            setTimeout(() => { window.location.href = "resources.html"; }, 100);
+        }
+
+        function goBack() {
+            setTimeout(() => { window.location.href = "topics.html"; }, 100);
+        }
+    </script>
+</body>
+</html>

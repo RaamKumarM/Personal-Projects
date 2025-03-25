@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Structure to store employee details
 struct Employee {
@@ -31,27 +32,57 @@ void generate_salary_slip(struct Employee emp) {
     printf("=====================================\n");
 }
 
-int main() {
-    struct Employee emp;
-
-    // Taking input from user
+// Function to get input from user (Fixed: Pass by reference)
+void getinput(struct Employee *emp) {
     printf("Enter Employee ID: ");
-    scanf("%d", &emp.id);
+    scanf("%d", &emp->id);
     
     printf("Enter Employee Name: ");
-    scanf(" %[^\n]s", emp.name);  // To read full name with spaces
+    scanf(" %[^\n]s", emp->name);  // Read full name with spaces
     
     printf("Enter Basic Salary: ");
-    scanf("%f", &emp.basic_salary);
+    scanf("%f", &emp->basic_salary);
     
     printf("Enter Allowances: ");
-    scanf("%f", &emp.allowances);
+    scanf("%f", &emp->allowances);
     
     printf("Enter Deductions: ");
-    scanf("%f", &emp.deductions);
+    scanf("%f", &emp->deductions);
+}
 
-    // Generate salary slip
-    generate_salary_slip(emp);
+int main() {
+    struct Employee emp;
+    int n = 0;
+
+    while (1) {
+        printf("===============================================\n");
+        printf("\t EMPLOYEE SALARY SLIP GENERATOR \n\n");
+        printf("1. Input Details\n");
+        printf("2. Generate Slip\n");
+        printf("3. Exit\n\n");
+        printf("===============================================\n");
+
+        printf("Make your Choice: ");
+        scanf("%d", &n);
+
+        switch (n) {
+            case 1:
+                getinput(&emp); // Fixed: Pass by reference
+                break;
+
+            case 2:
+                generate_salary_slip(emp);
+                break;
+            
+            case 3:
+                printf("\nThank You !!!\n");
+                return 0;
+
+            default:
+                printf("\nINVALID !!!\n\n");
+                continue;
+        }
+    }
 
     return 0;
 }
